@@ -1,0 +1,48 @@
+======================================================
+  Word Search Puzzle Game – FAST-NUCES OOP Spring 2026
+  Build Instructions (Windows only – uses <windows.h>)
+======================================================
+
+COMPILER:  g++ (MinGW / TDM-GCC recommended, comes with Dev-C++ / Code::Blocks)
+STANDARD:  C++17  (-std=c++17)
+
+── Dev-C++ ────────────────────────────────────────────
+1. Open Dev-C++
+2. File → New → Project → Console Application → C++
+3. Add ALL .cpp files (right-click project → Add files)
+4. Project → Project Options → Compiler → Compiler tab
+   Add: -std=c++17
+5. Press F11 (Build & Run)
+
+── Code::Blocks ───────────────────────────────────────
+1. File → New → Project → Console Application → C++
+2. Add all .cpp files to the project
+3. Project → Build Options → Compiler Flags
+   Enable: "Have g++ follow the C++17 ISO standard"
+4. Press F9 (Build & Run)
+
+── Command-line (MinGW) ───────────────────────────────
+g++ -std=c++17 -O2 -o WordSearch.exe ^
+    Player.cpp Category.cpp Board.cpp Hint.cpp ^
+    Timer.cpp Score.cpp Game.cpp main.cpp -lkernel32
+
+── IMPORTANT ──────────────────────────────────────────
+• Run in a proper Windows CMD/PowerShell terminal
+  (NOT Git Bash / WSL – those don't support SetConsoleTextAttribute)
+• For best box-drawing characters, set console font to
+  "Consolas" or "Courier New"
+• scores.txt is auto-created in the same folder as the .exe
+
+======================================================
+  OOP Concepts Demonstrated
+======================================================
+1. Encapsulation     – Player class (private + getters)
+2. Inheritance       – EasyGame / MediumGame / HardGame extend Game
+3. Polymorphism      – Game* base pointer → virtual startGame()
+4. Abstraction       – Game is abstract (pure virtual functions)
+5. Operator Overload – operator<< (display), operator> (sort), operator==
+6. Templates         – WordList<T> generic container (replaces vectors)
+7. Exception Handling– try/catch for file errors and invalid input
+8. File Handling     – fstream save/load of scores.txt
+9. Static Members    – totalGamesPlayed, HINT_PENALTY, MAX_SCORES
+10. GUI              – Windows console colours + CP-437 box-drawing chars
